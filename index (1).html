@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bini Amend Information Form</title>
+<style>
+  body {
+    background-color: #1e1e1e; /* Dark black background */
+    color: #ffd700; /* Gold font color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Choose a stylish font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    max-width: 500px;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  h2 {
+    text-align: center;
+    color: #ffd700;
+    margin-top: 0;
+    margin-bottom: 20px; /* Added margin */
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px; /* Adjusted font size */
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  input[type="button"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ffd700;
+    background-color: #ffffff;
+    color: #1e1e1e;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  input[type="button"] {
+    background-color: #ffd700;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+  }
+  input[type="button"]:hover {
+    background-color: #c4a000;
+  }
+</style>
+<script>
+function copyDetails() {
+  var details = "";
+  details += "Full Name of Agent: " + document.getElementById("full_name").value + "\n";
+  details += "Agent Customer Code: " + document.getElementById("agent_code").value + "\n";
+  details += "Agent Contact Number: " + document.getElementById("contact_no").value + "\n";
+  details += "Agent Email: " + document.getElementById("agent_email").value + "\n";
+  details += "Company Name of Amend: " + document.getElementById("company_name").value + "\n";
+  details += "Company Registration Number of Amend: " + document.getElementById("company_reg_no").value + "\n";
+  details += "Names of Resigning Directors:\n" + document.getElementById("resigning_directors").value + "\n";
+  details += "Names of Appointing Directors:\n" + document.getElementById("appointing_directors").value + "\n";
+
+  navigator.clipboard.writeText(details)
+    .then(() => {
+      alert("Form details copied to clipboard!");
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+</script>
+</head>
+<body>
+
+<form>
+  <h2>Amend Information Form</h2>
+
+  <p>Contact Bini via WhatsApp: <a href="https://wa.me/0644216164" style="color: #ffd700;">0644216164</a></p>
+
+  <label for="full_name">Full Name of Agent:</label>
+  <input type="text" id="full_name" name="full_name" required>
+
+  <label for="agent_code">Agent Customer Code:</label>
+  <input type="text" id="agent_code" name="agent_code" required>
+
+  <label for="contact_no">Agent Contact Number:</label>
+  <input type="tel" id="contact_no" name="contact_no" required>
+
+  <label for="agent_email">Agent Email:</label>
+  <input type="email" id="agent_email" name="agent_email" required>
+
+  <label for="company_name">Company Name of Amend:</label>
+  <input type="text" id="company_name" name="company_name" required>
+
+  <label for="company_reg_no">Company Registration Number of Amend:</label>
+  <input type="text" id="company_reg_no" name="company_reg_no" required>
+
+  <label for="resigning_directors">Names of Resigning Directors (max 5):</label>
+  <textarea id="resigning_directors" name="resigning_directors" rows="5"></textarea>
+
+  <label for="appointing_directors">Names of Appointing Directors (max 5):</label>
+  <textarea id="appointing_directors" name="appointing_directors" rows="5"></textarea>
+
+  <input type="button" value="Copy Details and paste it in WhatsApp or email" onclick="copyDetails()">
+</form>
+
+</body>
+</html>
